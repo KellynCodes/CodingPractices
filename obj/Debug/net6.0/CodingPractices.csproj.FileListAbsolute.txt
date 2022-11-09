@@ -1,0 +1,5 @@
+C:\Users\KELLYNCODES\Downloads\CodingPractices\obj\Debug\net6.0\CodingPractices.csproj.AssemblyReference.cache
+C:\Users\KELLYNCODES\Downloads\CodingPractices\obj\Debug\net6.0\CodingPractices.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\KELLYNCODES\Downloads\CodingPractices\obj\Debug\net6.0\CodingPractices.AssemblyInfoInputs.cache
+C:\Users\KELLYNCODES\Downloads\CodingPractices\obj\Debug\net6.0\CodingPractices.AssemblyInfo.cs
+C:\Users\KELLYNCODES\Downloads\CodingPractices\obj\Debug\net6.0\CodingPractices.csproj.CoreCompileInputs.cache
