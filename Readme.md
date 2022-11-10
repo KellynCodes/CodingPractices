@@ -86,7 +86,7 @@ public static class ClcA
 }
 ///<summary>
 ///All the variables in the code is not named according to what value it holds.
-</summary>
+///</summary>
 ```
 
 ## 3. Use Pascal Conversion For Defining Class
@@ -112,10 +112,84 @@ public class helloworld
 ///</summary>
 ```
 
-## 4 
+## 4. 👏👏While comparing string, convert string variables into Upper or Lower case.👏👏
 
 ```C#
-Good: if (firstName.ToLower() == "yogesh") {}  
-if (firstName.ToUpper() == “YOGESH”) {}  
+///<summary>
+///The code below checks if firstname == "yogesh"
+///To do this you are surposed to convert users firstname to lower case or upper case to avoid error in comparison. This is because users may enter different cases in a word.
+///<summary>
+Good: if (firstName.ToLower() == "yogesh") {} 
+ //OR 
+Good: if (firstName.ToUpper() == “YOGESH”) {}  
+///<summary>
+///Aviod comparing users input with strings without first converting the string to thesame case
+///</summary>
 Bad: if (firstName == “rohit”) {}  
+```
+
+## 5. Use 💖💖👍String.Empty👍💖💖 instead of 👏
+
+“”👏
+```C#
+Good: if (firstName == String.Empty) {}  
+Bad: if (firstName == “”) {}  
+///<summary>
+///There are two reasons, one for readability, and two for a minor performance boost.
+
+///Readability is easy: it's a lot quicker to spot string.Empty than "". Searching for string.Empty is also generally going to be easier and maybe more accurate than looking for the literal. It also clarifies intent: you didn't just make a typo or forget to finish something, you really did want empty string.
+
+///The performance reason is due to interning. You see, the runtime keeps a table of previously used strings so that it can quickly do string comparisons without actually doing a character-by-character check. string.Empty is already an interned reference to "" where-as typing the literal may not give you the interned version, thus causing a slight performance hit.
+///</summary>
+```
+
+## 6. 🔥🔥Use enums wherever required. 🔥🔥Don’t use numbers or strings to indicate discrete values👏
+
+```C#
+Good: public enum LoggerType {  
+    Event,  
+    File,  
+    Database  
+}  
+public void LogException(string message, LoggerType loggerType) {  
+    ///<summary>
+    ///Here the enum where used in the cases instead of normal string;
+    ///</summary>
+    switch (loggerType) {  
+        case LoggerType.Event:  
+        Console.WriteLine(LoggerType.Event);
+        break;  
+        case LoggerType.File:
+          Console.WriteLine(LoggerType.File);
+          break;
+        case LoggerType.Database:  
+    Console.WriteLine(LoggerType.Database);
+    break;
+ 
+        default:  
+        Console.WriteLine(message);
+        break;
+    }  
+}  
+
+Bad: public void LogException(string message, LoggerType loggerType) {  
+
+    ///<summary>
+    ///Here all the cases are string while instead of using the enum as the cases.
+    ///<summary>
+    switch (loggerType) {  
+        case "Event":  
+         Console.WriteLine("Event");
+    break; 
+        case "File":  
+         Console.WriteLine("File");
+    break;
+        case "Database":  
+           Console.WriteLine("Database");
+    break;
+        default:  
+           Console.WriteLine(message);
+           break; 
+    }  
+}  
 ```
