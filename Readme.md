@@ -21,7 +21,7 @@ This particular example above convey the actual information stored in this field
 
 ```C#
 ///<summary>
-/// This cod below gives clear illustration on how you can name classes appropriately.
+/// This code below gives clear illustration on how you can name classes appropriately.
 ///</summary>
 ///<returns>
 ///This code has a function that takes in two augments person birthday and the current date. 
@@ -51,8 +51,9 @@ public static class CalculateAge
 }
 ///<summary>
 ///All the variables in the code is named accordingly on what value it holds. This gives a clear understanding of your code.
+</summary>
 ```
-**BELOW IS THE BAD PRACTICE OF THE ABOVE CODE
+**BELOW IS THE BAD PRACTICE OF THE ABOVE COD😃😃
 ```c#
 ///<summary>
 /// This cod below gives clear illustration on how you can name classes appropriately.
@@ -85,4 +86,36 @@ public static class ClcA
 }
 ///<summary>
 ///All the variables in the code is not named according to what value it holds.
+</summary>
+```
+
+## 3. Use Pascal Conversion For Defining Class
+[.] **Good Practice**
+```C#
+public class HelloWorld
+{
+}
+///<summary>
+/// DO use PascalCasing for all public member, type, and namespace names consisting of multiple words. pascal convention makes your naming understandable as each new word that follows the naming is converted to capital letter
+///</summary>
+```
+
+[] **Bad Practice**
+
+```C#
+public class helloworld
+{
+
+}
+///<summary>
+///DO use camelCasing for parameter names.
+///</summary>
+```
+
+## 4 
+
+```C#
+Good: if (firstName.ToLower() == "yogesh") {}  
+if (firstName.ToUpper() == “YOGESH”) {}  
+Bad: if (firstName == “rohit”) {}  
 ```
