@@ -53,7 +53,7 @@ public static class CalculateAge
 ///All the variables in the code is named accordingly on what value it holds. This gives a clear understanding of your code.
 </summary>
 ```
-**BELOW IS THE BAD PRACTICE OF THE ABOVE COD😃😃
+**BELOW IS THE BAD PRACTICE OF THE ABOVE CODE😃😃
 ```c#
 ///<summary>
 /// This cod below gives clear illustration on how you can name classes appropriately.
@@ -90,7 +90,7 @@ public static class ClcA
 ```
 
 ## 3. Use Pascal Conversion For Defining Class
-[.] **Good Practice**
+[@] **Good Practice**
 ```C#
 public class HelloWorld
 {
@@ -100,7 +100,7 @@ public class HelloWorld
 ///</summary>
 ```
 
-[] **Bad Practice**
+[x] **Bad Practice**
 
 ```C#
 public class helloworld
@@ -119,21 +119,46 @@ public class helloworld
 ///The code below checks if firstname == "yogesh"
 ///To do this you are surposed to convert users firstname to lower case or upper case to avoid error in comparison. This is because users may enter different cases in a word.
 ///<summary>
-Good: if (firstName.ToLower() == "yogesh") {} 
+
+///<summary>
+///Good Practice
+///<summary>
+
+if (firstName.ToLower() == "yogesh") {} 
  //OR 
-Good: if (firstName.ToUpper() == “YOGESH”) {}  
+///<summary>
+///Good Practice
+///<summary>
+
+if (firstName.ToUpper() == “YOGESH”) {}  
 ///<summary>
 ///Aviod comparing users input with strings without first converting the string to thesame case
 ///</summary>
-Bad: if (firstName == “rohit”) {}  
+
+///<summary>
+///Bad Practice
+///<summary>
+
+if (firstName == “rohit”) {}  
 ```
 
 ## 5. Use 💖💖👍String.Empty👍💖💖 instead of 👏
 
 “”👏
 ```C#
-Good: if (firstName == String.Empty) {}  
-Bad: if (firstName == “”) {}  
+///<summary>
+///Good Practice
+///<summary>
+
+
+if (firstName == String.Empty) {}  
+
+///<summary>
+///Bad Practice
+///<summary>
+
+ if (firstName == “”) {}  
+
 ///<summary>
 ///There are two reasons, one for readability, and two for a minor performance boost.
 
@@ -146,7 +171,10 @@ Bad: if (firstName == “”) {}
 ## 6. 🔥🔥Use enums wherever required. 🔥🔥Don’t use numbers or strings to indicate discrete values👏
 
 ```C#
-Good: public enum LoggerType {  
+///<summary>
+///Good Practice
+///<summary> 
+public enum LoggerType {  
     Event,  
     File,  
     Database  
@@ -172,7 +200,10 @@ public void LogException(string message, LoggerType loggerType) {
     }  
 }  
 
-Bad: public void LogException(string message, LoggerType loggerType) {  
+///<summary>
+///Bad Practice
+///<summary>
+ public void LogException(string message, LoggerType loggerType) {  
 
     ///<summary>
     ///Here all the cases are string while instead of using the enum as the cases.
@@ -192,4 +223,206 @@ Bad: public void LogException(string message, LoggerType loggerType) {
            break; 
     }  
 }  
+```
+
+## 7. 👌😃👓🔥Always do null check for objects and complex objects before accessing them🤞✌💖😎
+
+```C#
+///<summary>
+///It always a good practice to check for null values before accessing them to avoid reference to null values.
+///</summary>
+-------- 
+///<summary>
+///Good Practice
+///<summary>
+public Contact GetContactDetails(Address address) {  
+    if (address != null && address.Contact != null) {  
+        return address.Contact;  
+    }  
+}  
+
+----------------------------------------------
+///<summary>
+///Avoid reference to a value without checking if it is null to avoid error "e.g from code below Address can be null" and this will trigger error"
+///</summary>
+
+///<summary>
+///Bad Practice
+///<summary>
+public Contact GetContactDetails(Address address) {  
+    return address.Contact;  
+}  
+```
+
+## 8. 🔥🔥Error🔥🔥 😃Message😎
+```C#
+///<summary>
+///Error message to end use should be user friendly and self-explanatory but log the actual exception details using logger. Create constants for this and use them in application.
+///<summary>
+
+///<summary>
+///Good Practice
+///<summary>  
+“Error occurred while connecting to database. Please contact administrator.” “Your session has been expired. Please login again.”  
+
+///<summary>
+///Bad Practice
+///<summary>
+“Error in Application.”  
+“There is an error in application.”  
+```
+
+## 9. 🤞✌👓Use object initializers to simplify object creation.🤞✌💖
+
+```C#
+///<summary>
+///User object initializers to reduce code and readability
+///</summary>
+
+///<summary>
+///Good Practice
+///<summary>
+var employee = new Employee {  
+    FirstName = “ABC”, LastName = “PQR”, Manager = “XYZ”, Salary = 12346.25  
+};  
+
+///<summary>
+///Avoid using this method to increase simplicity of your code
+///</summary>
+
+///<summary>
+///Bad Practice
+///<summary> 
+var employee = new Employee();  
+employee.FirstName = “ABC”;  
+employee.LastName = “PQR”;  
+employee.Manager = “XYZ”;  
+employee.Salary = 12346.25;  
+```
+
+## 10. 🤞✌💖Always catch only the specific exception instead of catching generic exception🤞✌💖
+
+```C#
+///<summary>
+///Good Practice
+///<summary> 
+void ReadFile(string fileName) {  
+    try {  
+        ///<summary>
+        /// read from file.  
+        ///</summary>
+    } catch (System.IO.IOException fileException) {  
+       ///<summary>
+        /// log the error. Re-throw exception throw fileException;
+       ///<summary>  
+    } finally {}  
+}  
+///<summary>
+///Bad Practice
+///<summary>
+ void ReadFile(string fileName) {  
+    try {  
+        ///<summary>
+        /// read from file.  
+        ///</summary>
+    } catch (Exception ex) {  
+        ///<summary>
+        /// catching general exception  
+        ///</summary>
+    } finally {}  
+}  
+```
+
+## 11. 👏👏Use Of Generics👏👏
+
+```C#
+///<summary>
+///Use of generics would help you to make reusable classes and functions
+///</summary>
+public class MyClass < T > where T: SomeOtherClass {  
+    public void SomeMethod(T t) {  
+        SomeOtherClass obj = t;  
+    }  
+}  
+```
+
+## 12. 👏💖👏Variable Differenciation 👏💖👏
+``` C#
+///<summary>
+///Variables or field name should not be diffrenciated with PasCal Or camelcase to avoid confusion or mistakes
+///</summary>
+
+public string userName {get; set}
+public string username {get; set}
+```
+
+## 13. 🤞✌👓Do not use Underscores in Identifiers 🤞✌👓
+
+```C#
+///<summary>
+///Why: consistent with the Microsoft's .NET Framework. It makes code more natural to read (without 'slur'). Also avoids underline stress, i.e. inability to see underline.
+///</summary>
+
+Good Practice:
+public TimeSpan timeLeft;
+ 
+ ///<summary>
+// Avoid
+ ///</summary>
+public DateTime client_Appointment;
+public TimeSpan time_Left;
+ 
+ ///<summary>
+///Exception
+///In exception of underscores before the word
+//any other place you put an underscore is a bad practice
+ ///</summary>
+private DateTime _registrationDate;
+```
+
+## 14. 💖👏Naming Interfaces 🤞✌
+```C#
+///<summary>
+///prefix interfaces with the letter I.  Interface names are noun (phrases) or adjectives
+
+public interface IShape
+{
+}
+public interface IShapeCollection
+{
+}
+public interface IGroupable
+{
+}
+```
+
+## 15. 🤞✌👓 Enum Types 👓🤞✌
+
+```C#
+///<summary>
+///do notexplicitly specify a type of an enum or values of enums (except bit fields)
+///</summary>
+
+///<summary>
+///Good Practice
+///<summary>
+public enum Direction : long
+{
+    North = 1,
+    East = 2,
+    South = 3,
+    West = 4
+}
+ 
+///<summary>
+///Bad Practice
+///<summary>
+public enum Direction
+{
+    North,
+    East,
+    South,
+    West
+}
+
 ```
