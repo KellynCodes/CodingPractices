@@ -7,7 +7,7 @@
 ```C#
 string u = Console.ReadLine();
 ```
-This code above is a bad practice because the field name those not convey the information stored in the field.
+This code above is a bad practice because the field name does not convey the information stored in the field.
 **Check This example Bellow**
 ```C#
 string user = Console.ReadLine();
